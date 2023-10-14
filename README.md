@@ -1,5 +1,13 @@
 # Multiplayer Snakes & Ladders
 
+## Install
+
+yarn install
+
+## Run
+
+node server.js
+
 ## About the Game
 
 A remake of the classic Snakes and Ladders Board game.
