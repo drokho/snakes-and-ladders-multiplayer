@@ -1,5 +1,5 @@
 // Making Connection
-const socket = io.connect("http://localhost:3000");
+const socket = io.connect("https://snakes-ladders-15wc.onrender.com/");
 socket.emit("joined");
 
 let players = []; // All players in the game
