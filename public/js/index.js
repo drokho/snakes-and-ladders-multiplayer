@@ -1,13 +1,31 @@
 // Making Connection
-const socket = io.connect("https://snakes-ladders-15wc.onrender.com/");
+let socket = '';
+
+if(window.location.hostname == 'localhost') {
+    socket = io.connect("localhost:3000/");
+} else {
+    socket = io.connect("https://snakes-ladders-15wc.onrender.com/");
+}
+
+
 socket.emit("joined");
 
 let players = []; // All players in the game
 let currentPlayer; // Player object for individual players
 
 let canvas = document.getElementById("canvas");
-canvas.width = document.documentElement.clientHeight * 0.9;
-canvas.height = document.documentElement.clientHeight * 0.9;
+
+if (document.documentElement.clientWidth * 0.5 < 400) {
+    canvas.width = 400;
+    canvas.height = 400;
+} else {
+    canvas.width = document.documentElement.clientWidth * 0.5;
+    canvas.height = document.documentElement.clientWidth * 0.5;
+
+}
+
+
+
 let ctx = canvas.getContext("2d");
 
 const redPieceImg = "../images/red_piece.png";
